@@ -1,0 +1,7 @@
+.idea/
+media/
+node_modules/
+
+*.log
+*.pyc
+local_settings.py

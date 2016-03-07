@@ -1,0 +1,147 @@
+{
+  "last-update": "2016.02.20",
+  "mods": {
+
+    "7th serpent": {
+
+      "7th serpent. chapter 1 - crossfire": {
+        "title": "7th serpent. chapter 1 - crossfire",
+        "description": {
+          "en": "",
+          "ru": ""
+        },
+        "authors": [],
+        "urls": [
+          "http://www.gamewatcher.com/mods/max-payne-2-the-fall-of-max-payne-mod/7th-serpent-crossfire-modification",
+          "http://www.gamewatcher.com/mods/max-payne-2-the-fall-of-max-payne-mod/7th-serpent"
+        ],
+        "version": "",
+        "new": "true"
+      },
+
+      "7th serpent. chapter 2 - genesis": {
+        "title": "7th serpent. chapter 2 - genesis",
+        "description": {
+          "en": "",
+          "ru": ""
+        },
+        "authors": [],
+        "urls": ["http://www.gamewatcher.com/mods/max-payne-2-the-fall-of-max-payne-mod/7th-serpent-genesis"],
+        "version": "",
+        "new": "true"
+      }
+
+    },
+
+    "Bloodlust Mode": {
+      "title": "Bloodlust Mode",
+      "description": {
+        "en": "Bloodlust is a gameplay changing mod inspired by Max Payne 1 \"New-York Minute\" mode when you must finish the whole game before timer stops at 00:00. Killing enemies helps to slow countdown.\n\nThis mod has same gameplay mechanics, but without timer.\n\nMax gets damage in small period until he dies. To stop or slow this problem you MUST kill enemies and run fast. Stop = Death.\n\nSpecial thanks to AntiEvil and The Silver for coding help. Without those guys I did nothing working about this mod. So, you can think that it's an AntiEvil and The Silver mod too, lol.",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/mods/bloodlust-mode"],
+      "version": "",
+      "new": "true"
+    },
+
+    "CS:GO Weapon Sound Mod": {
+      "title": "CS-GO Weapon Sound Mod",
+      "description": {
+        "en": "This sound mod replaces all gunfire, handling and reload sounds and many other item sounds in Max Payne 2 (PC) with those from Counter-Strike: Global Offensive.\nRead the installation instructions provided within the download to learn how to use it.\n\nThere's an alternate version for the Steyr SSG-69 (Sniper Rifle) gunfire within the files that has no bolt-action sounds. To learn how to use it, check the installation instructions.\nContains gunfire audio, reload/handling audio, grenade audio, Molotov audio, weapon melee audio, inventory/weapon select and menu audio.\n\nMod provided as loose, .ras and .mp2m files.",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/mods/counter-strike-global-offensive-weapon-sound-mod"],
+      "version": "",
+      "new": "true"
+    },
+
+    "Dante (DMC)": {
+      "title": "Dante (DMC)",
+      "description": {
+        "en": "Fight styles\nGunslinger-Style allow you use some gunkata special moves\nTrickster-Style allow you use some special moves to dodge ememy attacks\nSword Master-Style allow you use Sword for close combat and bullet block\n\nEnemies\nObcessed Mercs-Mercenaries obcessed by a devils.\nDemons-demons from hell. They use close combat to kill Dante\n\nOther Features\nGibbing system - every enemy gibbing on dying\nRed Orbs - pick up red orbs to get Green Orb and add health\nNew anims - Shooting, Sword moves, Special moves\nNew playble characters - Dante (with various models), Lady",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/mods/dante-dmc"],
+      "version": "beta",
+      "new": "true"
+    },
+
+    "Daredevil mod": {
+      "title": "Daredevil mod",
+      "description": {
+        "en": "This mod will give you to feel like a daredevil from Marvel",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/games/max-payne-2/addons/daredevil-mod"],
+      "version": "",
+      "new": "true"
+    },
+
+    "Feel the Payne": {
+      "title": "Feel the Payne",
+      "description": {
+        "en": "\"Feel the Payne\" aims at more realism and a higher difficulty. It adds new weapons and features to the game, fixes some bugs from the original game and improves many visuals with edited models and new textures.\nFor a complete list of changes read the included ReadMe files and/or the description of an attached download. If you want to check out the new textures and edited models, check out the screenshots.\nThe download includes very detailed installation instructions and descriptions in english and german languages.\n\nNote: This is the Beta release of project \"Feel the Payne\" and not all files have been tested excessively. All content is open to future updates and improvements. If you find any bugs or if you have any ideas, leave a comment or send me a private message.\n\nThis gameplay mod is completely compatible with any of my sound mods.",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/mods/max-payne-2-feel-the-payne-ende"],
+      "version": "1.5 beta",
+      "new": "true"
+    },
+
+    "hardcore": {
+      "title": "Hardcore",
+      "description": {
+        "en": "Hardcore mod adds new 6 difficulties which are makes Max Payne 2 game harder than usual. Enemy can kill you with 1-2 shots, you can't use slow motion (only in hardest difficulties).\nAuthors:\nAntiEvil - main script coding, hud coding.\nDeXiaZ - hud recoding, loading&menu pictures, difficulty names; main script recoding for Hardcore (DV).\n",
+        "ru": ""
+      },
+      "authors": ["AntiEvil", "DeXiaZ"],
+      "urls": ["http://www.moddb.com/mods/hardcore"],
+      "version": "",
+      "new": "true"
+    },
+
+    "Insurgency Weapon Sound Mod": {
+      "title": "Insurgency Weapon Sound Mod",
+      "description": {
+        "en": "This sound mod replaces all gunfire, handling and reload sounds and many other item sounds in Max Payne 2 (PC) with those from INSURGENCY.\nRead the installation instructions provided within the download to learn how to use it.\n\nThere's an alternate version for the Steyr SSG-69 (Sniper Rifle) gunfire within the files that has no bolt-action sounds. To learn how to use it, check the installation instructions.\nContains gunfire audio, reload/handling audio, C4 audio, grenade audio, Molotov audio, weapon melee audio, inventory/weapon select and menu audio.\n\nMod provided as loose, .ras and .mp2m files.",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": [],
+      "version": "",
+      "new": "true"
+    },
+
+    "revenge": {
+      "title": "Revenge Mod",
+      "description": {
+        "en": "This mod is created by me , not a group or a lot of guys .( just for fun -_-)\n\nI did some changes on max and the HUD .....\n\nHere are some :\n\nFeatures :\n-------------\n\n-New Max's models\n-New Vlad model\n-New Cleaner model\n-All enemyes now have many texturesets,new shaders and specular maps\n-New weapon models (all weapons old,but models changed to more detailed)\n-New some weapon icons\n-New weapon sounds\n-New death sounds\n-New menu theme music\n-Now deadbody have shadows\n-More decals on levels\n-More Clips and shells on levels\n-New Raggdols\n-Reload changed\n-Balance changed\n-Slow-Motion changed\n-Slide addad (hold \"Crouch\" while you run)\n-New weapon Colt 1911\n-New menu Backr\n\nEnjoy !",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": [
+        "http://www.moddb.com/mods/revenge-mod"
+      ],
+      "version": "",
+      "new": "true"
+    },
+
+    "The Punisher-WarZone: CaseBox 01": {
+      "title": "The Punisher-WarZone - CaseBox 01",
+      "description": {
+        "en": "The Punisher-WarZone: CaseBox 01 Total Conversion ,it's a mix of The Punisher: War Zone-movie,THQ video game, comic-books by Garth Ennis and own ideas.\nYou can play as The Punisher, Nick Fury, Deadpool, Black Widow and Max Payne.",
+        "ru": ""
+      },
+      "authors": [],
+      "urls": ["http://www.moddb.com/mods/the-punisher-war-zone-case-box-01"],
+      "version": "",
+      "new": "true"
+    }
+
+  }
+}
