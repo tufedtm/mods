@@ -1,6 +1,5 @@
 # coding=utf-8
 from __future__ import unicode_literals
-
 import os
 import configparser
 from settings import MAGAZINE
@@ -33,3 +32,28 @@ def get_data_sections_2000():
         sections.append(section)
 
     return sections
+
+
+def get_games_2000():
+    """
+    возвращает список игр в выпуске
+
+    :return: список строк с названиями игр
+    """
+    config = configparser.ConfigParser(delimiters='=')
+    config.optionxform = str
+    config.read('%sdata/data.txt' % MAGAZINE)
+
+    notgame_sections = ['SOFT', 'UTILS']
+
+    notgames = []
+    for x in [config.options(i) for i in notgame_sections]:
+        for i in x:
+            notgames.append(i)
+
+    games = []
+    for section in config.sections():
+        if section not in notgames and config.has_option(section, 'Install'):
+            games.append(config.get(section, 'Name'))
+
+    return games
