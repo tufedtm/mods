@@ -18,6 +18,14 @@ class MagazineAdmin(admin.ModelAdmin):
         return '%s %s' % (obj.get_title_display(), obj.number)
 
 
+class GameAdmin(admin.ModelAdmin):
+    readonly_fields = ['id', 'created', 'updated']
+
+
+class PatchAdmin(admin.ModelAdmin):
+    readonly_fields = ['id', 'created', 'updated']
+
+
 admin.site.register(Magazine, MagazineAdmin)
-admin.site.register(Game)
-admin.site.register(Patch)
+admin.site.register(Game, GameAdmin)
+admin.site.register(Patch, PatchAdmin)

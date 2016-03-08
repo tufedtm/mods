@@ -1,8 +1,8 @@
 # coding=utf-8
 from __future__ import unicode_literals
 from django.db import IntegrityError
-from models import Magazine, Game
-from magazines.igromania.includes.getters import get_games_2000
+from models import Magazine, Game, Patch
+from magazines.igromania.includes.getters import get_games_2000, get_patches_2000
 
 
 def fill_magazine(request):
@@ -34,3 +34,24 @@ def fill_games(request):
             Game(title=item).save()
         except IntegrityError, e:
             print(item + 'уже есть', e)
+
+
+def fill_patches(request):
+    """
+    добавляет в базу инфу по патчам из выпуска
+
+    :param request:
+    """
+    games = sorted(get_patches_2000()[0])
+    patches = get_patches_2000()[1]
+
+    games_qset = []
+    for item in Game.objects.all():
+        if item.title in games:
+            games_qset.append(item)
+
+    for i, item in enumerate(games):
+        print(games_qset[i])
+
+        Patch(magazine_id=28, game_id=int(games_qset[i].id), version=patches[i][1][1],
+              description=patches[i][3][1]).save()

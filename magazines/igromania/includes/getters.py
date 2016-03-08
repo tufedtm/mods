@@ -77,4 +77,4 @@ def get_patches_2000():
         if section in config.sections():
             res.append(config.items(section))
 
-    return res, games
+    return games, res

@@ -35,6 +35,7 @@ class Game(CreatedUpdated):
         return self.title
 
     class Meta:
+        ordering = ['title']
         verbose_name = 'Игра'
         verbose_name_plural = 'Игры'
 
@@ -49,5 +50,6 @@ class Patch(CreatedUpdated):
         return '%s %s' % (self.game, self.version)
 
     class Meta:
+        ordering = ['title']
         verbose_name = 'Патч'
         verbose_name_plural = 'Патчи'
