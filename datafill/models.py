@@ -50,6 +50,6 @@ class Patch(CreatedUpdated):
         return '%s %s' % (self.game, self.version)
 
     class Meta:
-        ordering = ['title']
+        ordering = ['game']
         verbose_name = 'Патч'
         verbose_name_plural = 'Патчи'
