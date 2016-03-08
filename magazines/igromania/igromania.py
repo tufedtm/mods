@@ -1,10 +1,9 @@
 # coding=utf-8
 from __future__ import unicode_literals
-import configparser
 import os
 import shutil
-from includes.getters import get_magazines, get_data_sections_2000
-from includes.settings import FOLDER_DEST, MAGAZINE
+from includes.getters import get_magazines
+from includes.settings import FOLDER_DEST
 
 
 def xa(src_path):
