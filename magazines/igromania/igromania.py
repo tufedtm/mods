@@ -7,35 +7,6 @@ from includes.getters import get_magazines, get_data_sections_2000
 from includes.settings import FOLDER_DEST, MAGAZINE
 
 
-def patches_2000():
-    """
-    возвращает информацию по патчам с выпуска журнала
-
-    :return: список списков кортежей
-    """
-    sections = get_data_sections_2000()
-    config = configparser.ConfigParser(delimiters='=')
-    config.optionxform = str
-    config.read('%sdata/data.txt' % MAGAZINE)
-
-    sections = [x for x in sections if 'patches' in x.lower()]
-
-    games = []
-
-    for section in sections:
-        if config.has_section(section):
-            games.extend(config.options(section))
-
-    games = [x for x in games]
-
-    res = []
-    for section in games:
-        if section in config.sections():
-            res.append(config.items(section))
-
-    return res
-
-
 def xa(src_path):
     """
     переносит всю музыку с диска в подпапку FOLDER_DEST

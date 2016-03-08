@@ -27,9 +27,8 @@ def get_data_sections_2000():
     sections = []
 
     for section in config.sections():
-        if config.has_option(section, 'Install'):
-            break
-        sections.append(section)
+        if not config.has_option(section, 'Install'):
+            sections.append(section)
 
     return sections
 
@@ -44,16 +43,40 @@ def get_games_2000():
     config.optionxform = str
     config.read('%sdata/data.txt' % MAGAZINE)
 
-    notgame_sections = ['SOFT', 'UTILS']
-
-    notgames = []
-    for x in [config.options(i) for i in notgame_sections]:
-        for i in x:
-            notgames.append(i)
+    notgame_sections = ['PROGRAM', 'SOFT', 'UTILS']
 
     games = []
-    for section in config.sections():
-        if section not in notgames and config.has_option(section, 'Install'):
-            games.append(config.get(section, 'Name'))
+    for section in get_data_sections_2000():
+        if section not in notgame_sections:
+            games.extend(config.options(section))
 
     return games
+
+
+def get_patches_2000():
+    """
+    возвращает информацию по патчам с выпуска журнала
+
+    :return: список списков кортежей
+    """
+    sections = get_data_sections_2000()
+    config = configparser.ConfigParser(delimiters='=')
+    config.optionxform = str
+    config.read('%sdata/data.txt' % MAGAZINE)
+
+    sections = [x for x in sections if 'patches' in x.lower()]
+
+    games = []
+
+    for section in sections:
+        if config.has_section(section):
+            games.extend(config.options(section))
+
+    games = [x for x in games]
+
+    res = []
+    for section in games:
+        if section in config.sections():
+            res.append(config.items(section))
+
+    return res
