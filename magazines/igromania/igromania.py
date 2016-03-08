@@ -36,9 +36,6 @@ def patches_2000():
     return res
 
 
-print(patches_2000())
-
-
 def xa(src_path):
     """
     переносит всю музыку с диска в подпапку FOLDER_DEST

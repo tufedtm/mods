@@ -29,7 +29,7 @@ class Magazine(CreatedUpdated):
 
 
 class Game(CreatedUpdated):
-    title = models.CharField('Название', max_length=100)
+    title = models.CharField('Название', max_length=100, unique=True)
 
     def __unicode__(self):
         return self.title
