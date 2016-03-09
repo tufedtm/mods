@@ -41,8 +41,8 @@ class Game(CreatedUpdated):
 
 
 class Patch(CreatedUpdated):
-    magazine = models.ForeignKey(Magazine)
-    game = models.ForeignKey(Game, verbose_name='Название игры')
+    magazine = models.ForeignKey(Magazine, verbose_name='Журнал')
+    game = models.ForeignKey(Game, verbose_name='Игра')
     version = models.CharField('Версия', max_length=10)
     description = models.TextField('Описание')
 
@@ -53,3 +53,34 @@ class Patch(CreatedUpdated):
         ordering = ['game']
         verbose_name = 'Патч'
         verbose_name_plural = 'Патчи'
+
+
+class Demo(CreatedUpdated):
+    magazine = models.ForeignKey(Magazine, verbose_name='Журнал')
+    game = models.ForeignKey(Game, verbose_name='Игра')
+    developer = models.CharField('Разработчик', max_length=100)
+    publisher = models.CharField('Издатель', max_length=100)
+    genre = models.CharField('Жанр', max_length=100)
+    sysreq = models.TextField('Системные требования')
+    description = models.TextField('Описание')
+
+    def __unicode__(self):
+        return '%s' % self.game
+
+    class Meta:
+        ordering = ['game']
+        verbose_name = 'демоверсия'
+        verbose_name_plural = 'демоверсии'
+
+
+class DemoImg(CreatedUpdated):
+    game = models.ForeignKey(Demo, verbose_name='Демоверсия')
+    image = models.ImageField('Скрин', upload_to='magazine/demo')
+
+    def __unicode__(self):
+        return '%s' % self.game
+
+    class Meta:
+        ordering = ['game']
+        verbose_name = 'скрин демоверсии'
+        verbose_name_plural = 'скрины демоверсий'
