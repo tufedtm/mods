@@ -15,6 +15,7 @@ class MagazineAdmin(ReadOnlyFields):
 
 class DemoImgInline(admin.TabularInline):
     model = DemoImg
+    extra = 1
     show_change_link = True
 
 
