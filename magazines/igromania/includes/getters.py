@@ -99,3 +99,24 @@ def get_patches_2000():
             res.append(config.items(section))
 
     return games, res
+
+
+def get_demos_2000():
+    """
+    возвращает информацию по демоверсиям с выпуска журнала
+
+    :return: список секций в демоверсиях
+    :return: список списков кортежей
+    """
+    config = get_ini_2000()
+    sections = get_data_sections_2000()
+    sections = [x for x in sections if 'demo' in x.lower()]
+
+    games = get_games_2000_section(sections)
+
+    demos = []
+    for section in games:
+        if section in config.sections():
+            demos.append(config.items(section))
+
+    return sorted(games), sorted(demos)
