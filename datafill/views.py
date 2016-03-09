@@ -1,8 +1,8 @@
 # coding=utf-8
 from __future__ import unicode_literals
 from django.db import IntegrityError
-from models import Magazine, Game, Patch
-from magazines.igromania.includes.getters import get_games_2000_all, get_patches_2000
+from models import Magazine, Game, Patch, Demo, DemoImg
+from magazines.igromania.includes.getters import get_games_2000_all, get_patches_2000, get_demos_2000
 
 
 def fill_magazine(request):
@@ -55,3 +55,32 @@ def fill_patches(request):
 
         Patch(magazine_id=28, game_id=int(games_qset[i].id), version=patches[i][1][1],
               description=patches[i][3][1]).save()
+
+
+def fill_demos(request):
+    """
+    добавляет в базу инфу по демоверсиям из выпуска
+
+    :param request:
+    """
+    games = get_demos_2000()[0]
+    demos = get_demos_2000()[1]
+
+    games_qset = []
+    for item in Game.objects.all():
+        if item.title in games:
+            games_qset.append(item)
+
+    for i, item in enumerate(games):
+        print(games_qset[i])
+
+        Demo(magazine_id=28, game_id=games_qset[i].id, developer=demos[i][2][1], publisher=demos[i][3][1],
+             genre=demos[i][4][1], sysreq=demos[i][5][1], description=demos[i][6][1]).save()
+
+    for entry in Demo.objects.order_by('-id')[:len(games)]:
+        for item in games:
+            if entry.game.title == item:
+                for img in demos[games.index(item)][-2:]:
+                    print('magazine/demo/%s' % img[1])
+                    print(entry.id)
+                    DemoImg(game_id=entry.id, image='magazine/demo/%s' % img[1]).save()
