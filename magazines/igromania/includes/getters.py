@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 import os
 import configparser
-from settings import MAGAZINE
+from settings import MAGAZINE_FOLDER, MAGAZINE_NUMBER
 
 
 def get_ini_2000():
@@ -13,7 +13,7 @@ def get_ini_2000():
     """
     config = configparser.ConfigParser(delimiters='=')
     config.optionxform = str
-    config.read('%sdata/data.txt' % MAGAZINE)
+    config.read('%sdata/data.txt' % MAGAZINE_FOLDER)
 
     return config
 
@@ -25,6 +25,7 @@ def get_magazines(src_path):
     :param src_path: путь к папке с папками 12 журналов за год
     :return: изменяемый список с названиями папок
     """
+    # todo: удалить функцию, т.к. правильнее копировать все файлы из одного журнала, а не одну папку со всех журналов
     return os.listdir(src_path)
 
 
@@ -52,14 +53,18 @@ def get_games_2000_all():
     """
     config = get_ini_2000()
 
-    notgame_sections = ['PROGRAM', 'SOFT', 'UTILS']
+    notgame_sections = []
+    if MAGAZINE_NUMBER in [28]:
+        notgame_sections = ['PROGRAM', 'SOFT', 'UTILS']
+    elif MAGAZINE_NUMBER in [29]:
+        notgame_sections = ['PROGRAM', 'RUSSIA', 'BUNKER', 'SOFT', 'UTILS']
 
     games = []
     for section in get_data_sections_2000():
         if section not in notgame_sections:
             games.extend(config.options(section))
 
-    return games
+    return sorted(games)
 
 
 def get_games_2000_section(sections):
