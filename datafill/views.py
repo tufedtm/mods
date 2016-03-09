@@ -33,7 +33,7 @@ def fill_games(request):
         try:
             Game(title=item).save()
         except IntegrityError, e:
-            print(item + 'уже есть', e)
+            print('%s уже есть, %s' % (item, e))
 
 
 def fill_patches(request):

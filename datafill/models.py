@@ -24,6 +24,7 @@ class Magazine(CreatedUpdated):
         return '%s %s' % (self.get_title_display(), self.number)
 
     class Meta:
+        unique_together = [['title', 'number'], ['public_year', 'public_month']]
         verbose_name = 'Журнал'
         verbose_name_plural = 'Журналы'
 
