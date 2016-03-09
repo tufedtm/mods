@@ -5,6 +5,19 @@ import configparser
 from settings import MAGAZINE
 
 
+def get_ini_2000():
+    """
+    возвращает содержимое файла с данными
+
+    :return: объект configparser
+    """
+    config = configparser.ConfigParser(delimiters='=')
+    config.optionxform = str
+    config.read('%sdata/data.txt' % MAGAZINE)
+
+    return config
+
+
 def get_magazines(src_path):
     """
     возвращает все журналы за год
@@ -21,11 +34,9 @@ def get_data_sections_2000():
 
     :return: изменяемый список с названиями секций
     """
-    config = configparser.ConfigParser(delimiters='=')
-    config.read('%sdata/data.txt' % MAGAZINE)
+    config = get_ini_2000()
 
     sections = []
-
     for section in config.sections():
         if not config.has_option(section, 'Install'):
             sections.append(section)
@@ -39,9 +50,7 @@ def get_games_2000():
 
     :return: список строк с названиями игр
     """
-    config = configparser.ConfigParser(delimiters='=')
-    config.optionxform = str
-    config.read('%sdata/data.txt' % MAGAZINE)
+    config = get_ini_2000()
 
     notgame_sections = ['PROGRAM', 'SOFT', 'UTILS']
 
@@ -60,9 +69,7 @@ def get_patches_2000():
     :return: список секций в патчах
     :return: список списков кортежей
     """
-    config = configparser.ConfigParser(delimiters='=')
-    config.optionxform = str
-    config.read('%sdata/data.txt' % MAGAZINE)
+    config = get_ini_2000()
 
     sections = get_data_sections_2000()
     sections = [x for x in sections if 'patches' in x.lower()]
