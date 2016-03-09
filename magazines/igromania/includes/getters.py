@@ -44,7 +44,7 @@ def get_data_sections_2000():
     return sections
 
 
-def get_games_2000():
+def get_games_2000_all():
     """
     возвращает список игр в выпуске
 
@@ -62,6 +62,23 @@ def get_games_2000():
     return games
 
 
+def get_games_2000_section(sections):
+    """
+    возвращает список игр в переданной секции
+
+    :param sections: список названий секций
+    :return: список названий игр
+    """
+    config = get_ini_2000()
+
+    games = []
+    for section in sections:
+        if config.has_section(section):
+            games.extend(config.options(section))
+
+    return games
+
+
 def get_patches_2000():
     """
     возвращает информацию по патчам с выпуска журнала
@@ -74,10 +91,7 @@ def get_patches_2000():
     sections = get_data_sections_2000()
     sections = [x for x in sections if 'patches' in x.lower()]
 
-    games = []
-    for section in sections:
-        if config.has_section(section):
-            games.extend(config.options(section))
+    games = get_games_2000_section(sections)
 
     res = []
     for section in games:

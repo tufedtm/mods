@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.db import IntegrityError
 from models import Magazine, Game, Patch
-from magazines.igromania.includes.getters import get_games_2000, get_patches_2000
+from magazines.igromania.includes.getters import get_games_2000_all, get_patches_2000
 
 
 def fill_magazine(request):
@@ -28,7 +28,7 @@ def fill_games(request):
 
     :param request:
     """
-    for item in get_games_2000():
+    for item in get_games_2000_all():
         print(item)
         try:
             Game(title=item).save()
