@@ -56,7 +56,7 @@ def get_games_2000_all():
     notgame_sections = []
     if MAGAZINE_NUMBER in [28]:
         notgame_sections = ['PROGRAM', 'SOFT', 'UTILS']
-    elif MAGAZINE_NUMBER in [29]:
+    elif MAGAZINE_NUMBER in [29, 30]:
         notgame_sections = ['PROGRAM', 'RUSSIA', 'BUNKER', 'SOFT', 'UTILS']
 
     games = []
@@ -66,6 +66,8 @@ def get_games_2000_all():
 
     return sorted(games)
 
+
+print(get_games_2000_all())
 
 def get_games_2000_section(sections):
     """
