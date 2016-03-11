@@ -60,7 +60,7 @@ def ini_to_dict(path):
 
 def get_gamezone():
     """
-    создает словарь со всей игровой зоной выпуска
+    создает словарь со всей gamezone выпуска
 
     :return: словарь
     """
@@ -85,3 +85,39 @@ def get_gamezone():
                 data[menu_key]['childs'][key] = data_file.get(key)
 
     return data
+
+
+def get_themesdvd():
+    """
+    создает словарь со всей themedvd выпуска
+
+    :return: словарь
+    """
+    data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'ThemesDVD/data.ini')
+
+    return data_file
+
+
+def get_deathzone():
+    """
+    создает словарь со всей deathzone выпуска
+
+    :return: словарь
+    """
+    data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'DeathZone/data.ini')
+
+    for key in data.keys():
+        if key in ['Deathzone']:
+            data.pop(key)
+        elif len(key.split('_')) > 2:
+            data.pop(key)
+
+    for key in data_file.keys():
+        for menu_key in data.keys():
+            if key.split('_')[1] == menu_key.split('_')[1]:
+                data[menu_key]['childs'][key] = data_file.get(key)
+
+    return data
+
+
+get_deathzone()
