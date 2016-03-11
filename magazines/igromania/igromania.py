@@ -4,7 +4,7 @@ import os
 import shutil
 from pprint import pprint
 from includes.getters import get_magazines
-from includes.getters2004 import get_gamezone
+from includes.getters2004 import get_gamezone, get_themesdvd, get_deathzone
 from includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
 
 
@@ -49,3 +49,34 @@ def copy_gamezone():
             shutil.copytree(src, dst)
             break
 
+
+def copy_themesdvd():
+    data = get_themesdvd()
+
+    for item in data.values():
+        print(item['Title'])
+        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+        src = '%s%s' % (MAGAZINE_FOLDER, path)
+        print(src)
+        dst = '%sthemesdvd/%s/%s' % (
+            FOLDER_DEST, MAGAZINE_FOLDER.split('/')[3], item['Title'].replace(':', '-').replace('"', '')
+        )
+        print(dst)
+        shutil.copytree(src, dst)
+
+
+def copy_deathzone():
+    data = get_deathzone()
+
+    for item in data.values():
+        print(item['Title'])
+        for child in item['childs'].values():
+            path = '%s/%s' % (child['Path'].split('\\')[0], child['Path'].split('\\')[1])
+            src = '%s%s' % (MAGAZINE_FOLDER, path)
+            print(src)
+            dst = '%sdeathzone/%s/%s' % (
+                FOLDER_DEST, MAGAZINE_FOLDER.split('/')[3], item['Title'].replace(':', '-').replace('"', '')
+            )
+            print(dst)
+            shutil.copytree(src, dst)
+            break

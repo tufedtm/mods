@@ -72,7 +72,7 @@ def get_gamezone():
             data.pop(key)
         elif len(key.split('_')) > 2:
             data.pop(key)
-        # закомментировать для номера 85 (2004.10 окбябрь)
+        # закомментировать след. две строки для номера 85 (2004.10 окбябрь)
         elif 'AZO1' == key.split('_')[1]:
             data.pop(key)
 
@@ -114,6 +114,9 @@ def get_deathzone():
             data.pop(key)
         elif len(key.split('_')) > 2:
             data.pop(key)
+
+    # удаление руководства по установке
+    data.pop('Deathzone_Dea%d' % len(data.keys()))
 
     for key in data_file.keys():
         for menu_key in data.keys():
