@@ -2,8 +2,10 @@
 from __future__ import unicode_literals
 import os
 import shutil
+from pprint import pprint
 from includes.getters import get_magazines
-from includes.settings import FOLDER_DEST
+from includes.getters2004 import get_gamezone
+from includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
 
 
 def xa(src_path):
@@ -29,3 +31,21 @@ def xa(src_path):
                 src = '%s/%s' % (folder_src, item)
                 dst = '%sxa/%s' % (FOLDER_DEST, magazine_numbers[folders.index(folder)])
                 shutil.copytree(src, dst)
+
+
+def copy_gamezone():
+    data = get_gamezone()
+
+    for item in data.values():
+        print(item['Title'])
+        for child in item['childs'].values():
+            path = '%s/%s' % (child['Path'].split('\\')[0], child['Path'].split('\\')[1])
+            src = '%s%s' % (MAGAZINE_FOLDER, path)
+            print(src)
+            dst = '%sgamezone/%s/%s' % (
+                FOLDER_DEST, MAGAZINE_FOLDER.split('/')[3], item['Title'].replace(':', '-').replace('"', '')
+            )
+            print(dst)
+            shutil.copytree(src, dst)
+            break
+

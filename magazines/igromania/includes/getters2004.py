@@ -29,7 +29,7 @@ def ini_to_dict(path):
     :param path: путь к ini-файлу, либо к списку ini-файлов
     :return: словарь с элеметами `Menu` и словарь с элементами `File`
     """
-    config = configparser.ConfigParser(delimiters='=')
+    config = configparser.RawConfigParser(delimiters='=')
     config.optionxform = str
     config.read(path)
 
@@ -72,11 +72,14 @@ def get_gamezone():
             data.pop(key)
         elif len(key.split('_')) > 2:
             data.pop(key)
+        # закомментировать для номера 85 (2004.10 окбябрь)
         elif 'AZO1' == key.split('_')[1]:
             data.pop(key)
 
     for key in data_file.keys():
         if 'OBSchA' in key:
+            data_file.pop(key)
+        elif key.split('_')[2] in ['Raboti2', 'Raboti3']:
             data_file.pop(key)
 
     for key in data_file.keys():
@@ -118,6 +121,3 @@ def get_deathzone():
                 data[menu_key]['childs'][key] = data_file.get(key)
 
     return data
-
-
-get_deathzone()

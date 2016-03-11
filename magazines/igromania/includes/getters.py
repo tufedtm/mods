@@ -67,8 +67,6 @@ def get_games_2000_all():
     return sorted(games)
 
 
-print(get_games_2000_all())
-
 def get_games_2000_section(sections):
     """
     возвращает список игр в переданной секции
