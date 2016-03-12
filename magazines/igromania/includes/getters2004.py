@@ -157,3 +157,14 @@ def get_demosthemes2():
     data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'DemosThemes2/data.ini')
 
     return data_file
+
+
+def get_patches():
+    """
+    создает словарь со всей patches выпуска
+
+    :return: словарь
+    """
+    data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'Patches/data.ini')
+
+    return data_file
