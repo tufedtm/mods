@@ -145,6 +145,10 @@ def get_demosthemes1():
     """
     data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'DemosThemes1/data.ini')
 
+    for key in data_file.keys():
+        if 'Roliki' in key.split('_')[-1]:
+            data_file.pop(key)
+
     return data_file
 
 
