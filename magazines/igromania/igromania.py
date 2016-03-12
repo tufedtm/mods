@@ -187,8 +187,3 @@ def copy_patches():
     ini = MAGAZINE_FOLDER + 'Patches/data.ini'
     dest = FOLDER_DEST + 'patches/' + MAGAZINE_FOLDER.split('/')[3]
     shutil.copy(ini, dest)
-
-copy_demosthemes1()
-copy_demosthemes2()
-copy_interest()
-copy_patches()
