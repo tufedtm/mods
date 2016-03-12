@@ -88,7 +88,10 @@ def copy_demosthemes1():
 
     for item in data.values():
         print(item['Title'])
-        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+        if item.get('Path'):
+            path = '%s/%s' % (item.get('Path').split('\\')[0], item.get('Path').split('\\')[1])
+        else:
+            path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
         print(src)
@@ -109,7 +112,10 @@ def copy_demosthemes2():
 
     for item in data.values():
         print(item['Title'])
-        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+        if item.get('Path'):
+            path = '%s/%s' % (item.get('Path').split('\\')[0], item.get('Path').split('\\')[1])
+        else:
+            path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
         print(src)
@@ -121,7 +127,6 @@ def copy_demosthemes2():
 
     ini = MAGAZINE_FOLDER + 'DemosThemes2/data.ini'
     dest = FOLDER_DEST + 'demosthemes2/' + MAGAZINE_FOLDER.split('/')[3]
-
     shutil.copy(ini, dest)
 
 
@@ -130,7 +135,10 @@ def copy_interest():
 
     for item in data.values():
         print(item['Title'])
-        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+        if item.get('Path'):
+            path = '%s/%s' % (item.get('Path').split('\\')[0], item.get('Path').split('\\')[1])
+        else:
+            path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
         print(src)
@@ -151,7 +159,10 @@ def copy_patches():
 
     for item in data.values():
         print(item['Title'])
-        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+        if item.get('Path'):
+            path = '%s/%s' % (item.get('Path').split('\\')[0], item.get('Path').split('\\')[1])
+        else:
+            path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
         print(src)
