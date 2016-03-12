@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Magazine, Game, Patch, Demo, DemoImg
+from . import models
 
 
 class ReadOnlyFields(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class MagazineAdmin(ReadOnlyFields):
 
 
 class DemoImgInline(admin.TabularInline):
-    model = DemoImg
+    model = models.DemoImg
     extra = 1
     show_change_link = True
 
@@ -23,8 +23,9 @@ class DemoAdmin(ReadOnlyFields):
     inlines = [DemoImgInline]
 
 
-admin.site.register(Magazine, MagazineAdmin)
-admin.site.register(Game, ReadOnlyFields)
-admin.site.register(Patch, ReadOnlyFields)
-admin.site.register(Demo, DemoAdmin)
-admin.site.register(DemoImg, ReadOnlyFields)
+admin.site.register(models.Magazine, MagazineAdmin)
+admin.site.register(models.Game, ReadOnlyFields)
+admin.site.register(models.Patch, ReadOnlyFields)
+admin.site.register(models.Demo, DemoAdmin)
+admin.site.register(models.DemoImg, ReadOnlyFields)
+admin.site.register(models.ThemeDVD, ReadOnlyFields)

@@ -85,3 +85,18 @@ class DemoImg(CreatedUpdated):
         ordering = ['game']
         verbose_name = 'скрин демоверсии'
         verbose_name_plural = 'скрины демоверсий'
+
+
+class ThemeDVD(CreatedUpdated):
+    magazine = models.ForeignKey(Magazine, verbose_name='Журнал')
+    game = models.CharField('Игра', max_length=150)
+    title = models.CharField('Название', max_length=150)
+    description = models.TextField('Описание')
+
+    def __unicode__(self):
+        return '%s %s' % (self.magazine.number, self.title)
+
+    class Meta:
+        ordering = ['magazine']
+        verbose_name = 'Тема DVD'
+        verbose_name_plural = 'Темы DVD'
