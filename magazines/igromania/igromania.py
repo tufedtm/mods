@@ -8,6 +8,8 @@ from includes.getters2004 import get_gamezone, get_themesdvd, get_deathzone, get
     get_interest, get_patches
 from includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
 
+WARNING = '\033[93m'
+ENDC = '\033[0m'
 
 def xa(src_path):
     """
@@ -93,7 +95,7 @@ def copy_demosthemes1():
         elif item.get('Name'):
             path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
         else:
-            print('файла на диске нет')
+            print(WARNING + 'файла на диске нет' + ENDC)
             continue
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
@@ -120,7 +122,7 @@ def copy_demosthemes2():
         elif item.get('Name'):
             path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
         else:
-            print('файла на диске нет')
+            print(WARNING + 'файла на диске нет' + ENDC)
             continue
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
@@ -146,7 +148,7 @@ def copy_interest():
         elif item.get('Name'):
             path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
         else:
-            print('файла на диске нет')
+            print(WARNING + 'файла на диске нет' + ENDC)
             continue
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
@@ -173,7 +175,7 @@ def copy_patches():
         elif item.get('Name'):
             path = '%s/%s' % (item.get('Name').split('\\')[0], item.get('Name').split('\\')[1])
         else:
-            print('файла на диске нет')
+            print(WARNING + 'файла на диске нет' + ENDC)
             continue
 
         src = '%s%s' % (MAGAZINE_FOLDER, path)
@@ -187,3 +189,8 @@ def copy_patches():
     ini = MAGAZINE_FOLDER + 'Patches/data.ini'
     dest = FOLDER_DEST + 'patches/' + MAGAZINE_FOLDER.split('/')[3]
     shutil.copy(ini, dest)
+
+copy_demosthemes1()
+copy_demosthemes2()
+copy_interest()
+copy_patches()
