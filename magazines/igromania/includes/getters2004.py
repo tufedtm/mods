@@ -167,4 +167,8 @@ def get_patches():
     """
     data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'Patches/data.ini')
 
+    for key in data_file.keys():
+        if key.split('_')[1] == 'Pat1':
+            data_file.pop(key)
+
     return data_file
