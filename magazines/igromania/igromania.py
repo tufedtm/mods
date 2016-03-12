@@ -102,3 +102,24 @@ def copy_demosthemes1():
     dest = FOLDER_DEST + 'demosthemes1/' + MAGAZINE_FOLDER.split('/')[3]
 
     shutil.copy(ini, dest)
+
+
+def copy_demosthemes2():
+    data = get_demosthemes2()
+
+    for item in data.values():
+        print(item['Title'])
+        path = '%s/%s' % (item['Path'].split('\\')[0], item['Path'].split('\\')[1])
+
+        src = '%s%s' % (MAGAZINE_FOLDER, path)
+        print(src)
+        dst = '%sdemosthemes2/%s/%s' % (
+            FOLDER_DEST, MAGAZINE_FOLDER.split('/')[3], item['Title'].replace(':', '-').replace('"', '')
+        )
+        print(dst)
+        shutil.copytree(src, dst)
+
+    ini = MAGAZINE_FOLDER + 'DemosThemes2/data.ini'
+    dest = FOLDER_DEST + 'demosthemes2/' + MAGAZINE_FOLDER.split('/')[3]
+
+    shutil.copy(ini, dest)
