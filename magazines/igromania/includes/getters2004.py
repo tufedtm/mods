@@ -124,3 +124,14 @@ def get_deathzone():
                 data[menu_key]['childs'][key] = data_file.get(key)
 
     return data
+
+
+def get_interest():
+    """
+    создает словарь со всей interest выпуска
+
+    :return: словарь
+    """
+    data, data_file = ini_to_dict(MAGAZINE_FOLDER + 'Interest/data.ini')
+
+    return data_file
