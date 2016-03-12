@@ -11,6 +11,7 @@ from includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
 WARNING = '\033[93m'
 ENDC = '\033[0m'
 
+
 def xa(src_path):
     """
     переносит всю музыку с диска в подпапку FOLDER_DEST
@@ -52,6 +53,14 @@ def copy_gamezone():
             shutil.copytree(src, dst)
             break
 
+    for i in range(1, 4):
+        ini = MAGAZINE_FOLDER + 'GameZone' + str(i) + '/data.ini'
+        dest = FOLDER_DEST + 'gamezone/' + MAGAZINE_FOLDER.split('/')[3] + '/'
+        print(ini)
+        print(dest)
+        shutil.copy(ini, dest)
+        os.rename(dest + 'data.ini', dest + 'data' + str(i) + '.ini')
+
 
 def copy_themesdvd():
     data = get_themesdvd()
@@ -66,6 +75,10 @@ def copy_themesdvd():
         )
         print(dst)
         shutil.copytree(src, dst)
+
+    ini = MAGAZINE_FOLDER + 'ThemesDVD/data.ini'
+    dest = FOLDER_DEST + 'themesdvd/' + MAGAZINE_FOLDER.split('/')[3]
+    shutil.copy(ini, dest)
 
 
 def copy_deathzone():
@@ -83,6 +96,10 @@ def copy_deathzone():
             print(dst)
             shutil.copytree(src, dst)
             break
+
+    ini = MAGAZINE_FOLDER + 'DeathZone/data.ini'
+    dest = FOLDER_DEST + 'deathzone/' + MAGAZINE_FOLDER.split('/')[3]
+    shutil.copy(ini, dest)
 
 
 def copy_demosthemes1():
@@ -108,7 +125,6 @@ def copy_demosthemes1():
 
     ini = MAGAZINE_FOLDER + 'DemosThemes1/data.ini'
     dest = FOLDER_DEST + 'demosthemes1/' + MAGAZINE_FOLDER.split('/')[3]
-
     shutil.copy(ini, dest)
 
 
@@ -161,7 +177,6 @@ def copy_interest():
 
     ini = MAGAZINE_FOLDER + 'Interest/data.ini'
     dest = FOLDER_DEST + 'interest/' + MAGAZINE_FOLDER.split('/')[3]
-
     shutil.copy(ini, dest)
 
 
@@ -189,8 +204,3 @@ def copy_patches():
     ini = MAGAZINE_FOLDER + 'Patches/data.ini'
     dest = FOLDER_DEST + 'patches/' + MAGAZINE_FOLDER.split('/')[3]
     shutil.copy(ini, dest)
-
-copy_demosthemes1()
-copy_demosthemes2()
-copy_interest()
-copy_patches()
