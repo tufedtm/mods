@@ -1,20 +1,17 @@
 import os
 
-os.system('cls')
-
-dirPath = 'e:/~~/disciples/disciples/disciples 3/mods/'
+dirPath = 'd:/fc/fc1/mods'
 icon = 'd:/tools/max payne/icon.png'
 img = 'd:/tools/max payne/img.bmp'
 
-# print(os.listdir(dirPath))
-# print(dirPath + os.listdir(dirPath)[0])
+for mod in os.listdir(dirPath):
+    rar = f'rar a -ep1 -ma4 -m5 -md4m -qo- -r -se -sfx "{dirPath}/{mod} rar4" "{dirPath}/{mod}/*"'
+    rar5 = f'rar a -ep1 -ma5 -htb -m5 -md1g -oi -qo- -r -se -sfx "{dirPath}/{mod} rar5" "{dirPath}/{mod}/*"'
+    rar5oi1 = f'rar a -ep1 -ma5 -htb -m5 -md1g -oi:1 -qo- -r -se -sfx "{dirPath}/{mod} rar5 oi1" "{dirPath}/{mod}/*"'
+    z7 = f''
+    os.system(rar)
+    os.system(rar5)
+    os.system(rar5oi1)
 
-
-for i in os.listdir(dirPath):
-    os.system('7z a -sfx7z.sfx "' + dirPath + i + ' 7z.exe" "' + dirPath + i + '/*" -mx=9 -mmt=16 -ms=off')
-    os.system('rar a -sfx -md1g -m5 "' + dirPath + i + ' winrar.exe" "' + dirPath + i + '/*" -ep1 -mt16 -r -s-')
-
-# -iiconc:\myicons\ver1.ico
-# -iimglogo2.bmp
-#  -iicon' + icon + '
-# -iimg' + img
+# for i in os.listdir(dirPath):
+#     print('7z a -sfx7z.sfx "' + dirPath + i + ' 7z.exe" "' + dirPath + i + '/*" -mx=9 -mmt=16 -ms=off')

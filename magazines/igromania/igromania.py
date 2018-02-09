@@ -1,12 +1,10 @@
-# coding=utf-8
-from __future__ import unicode_literals
 import os
 import shutil
-from pprint import pprint
-from includes.getters import get_magazines
-from includes.getters2004 import get_gamezone, get_themesdvd, get_deathzone, get_demosthemes1, get_demosthemes2, \
+
+from .includes.getters import get_magazines
+from .includes.getters2004 import get_gamezone, get_themesdvd, get_deathzone, get_demosthemes1, get_demosthemes2, \
     get_interest, get_patches
-from includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
+from .includes.settings import FOLDER_DEST, MAGAZINE_FOLDER
 
 WARNING = '\033[93m'
 ENDC = '\033[0m'
